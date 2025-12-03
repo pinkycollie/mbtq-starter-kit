@@ -46,13 +46,15 @@ export function PinkSyncWidget({
       .draggable({
         listeners: {
           move(ev) {
-            const newCoord = {
-              ...coord,
-              x: coord.x + ev.dx,
-              y: coord.y + ev.dy
-            };
-            setCoord(newCoord);
-            socket.emit("move", { id, ...newCoord });
+            setCoord(prevCoord => {
+              const newCoord = {
+                ...prevCoord,
+                x: prevCoord.x + ev.dx,
+                y: prevCoord.y + ev.dy
+              };
+              socket.emit("move", { id, ...newCoord });
+              return newCoord;
+            });
           }
         }
       })
@@ -60,13 +62,15 @@ export function PinkSyncWidget({
         edges: { left: true, right: true, bottom: true, top: true },
         listeners: {
           move(ev) {
-            const newCoord = {
-              ...coord,
-              w: ev.rect.width,
-              h: ev.rect.height
-            };
-            setCoord(newCoord);
-            socket.emit("resize", { id, ...newCoord });
+            setCoord(prevCoord => {
+              const newCoord = {
+                ...prevCoord,
+                w: ev.rect.width,
+                h: ev.rect.height
+              };
+              socket.emit("resize", { id, ...newCoord });
+              return newCoord;
+            });
           }
         },
         modifiers: [
@@ -84,7 +88,6 @@ export function PinkSyncWidget({
       interact(box).unset();
       socket.off("sync");
     };
-    // eslint-disable-next-line
   }, [boxRef, socket, id]);
 
   const triggerVisualAlert = () => {
