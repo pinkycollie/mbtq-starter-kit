@@ -11,7 +11,7 @@ interface PinkSyncWidgetProps {
 export function PinkSyncWidget({ 
   id = 'default', 
   initial = { x: 100, y: 120, w: 420, h: 220 },
-  socketUrl = process.env.SOCKET_IO_URL || "http://localhost:4000"
+  socketUrl = import.meta.env.VITE_SOCKET_SERVER_URL || "http://localhost:4000"
 }: PinkSyncWidgetProps) {
   const boxRef = useRef<HTMLDivElement>(null);
   const [coord, setCoord] = useState(initial);
