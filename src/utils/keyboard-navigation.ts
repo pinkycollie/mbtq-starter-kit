@@ -156,9 +156,9 @@ export class KeyboardNavigationUtil {
   }
 
   /**
-   * Check if element is keyboard accessible
+   * Check if element is focusable
    */
-  static isKeyboardAccessible(element: HTMLElement): boolean {
+  static isFocusable(element: HTMLElement): boolean {
     const tagName = element.tagName.toLowerCase();
     const nativelyFocusable = ['a', 'button', 'input', 'select', 'textarea'].includes(tagName);
     

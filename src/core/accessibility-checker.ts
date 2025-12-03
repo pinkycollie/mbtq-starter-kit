@@ -31,12 +31,10 @@ export interface AccessibilityCheckResult {
 
 export class AccessibilityChecker {
   private issues: AccessibilityIssue[] = [];
-  // @ts-expect-error - wcagLevel is used for filtering and configuring checks
   private wcagLevel: 'A' | 'AA' | 'AAA' = 'AA';
 
   constructor(wcagLevel: 'A' | 'AA' | 'AAA' = 'AA') {
     this.wcagLevel = wcagLevel;
-    // WCAG level is used for filtering and configuring checks
   }
 
   /**
@@ -55,6 +53,13 @@ export class AccessibilityChecker {
     this.checkTabIndex(html);
 
     return this.getResults();
+  }
+
+  /**
+   * Get WCAG level
+   */
+  getWcagLevel(): 'A' | 'AA' | 'AAA' {
+    return this.wcagLevel;
   }
 
   /**
