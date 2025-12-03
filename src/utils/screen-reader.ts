@@ -66,7 +66,7 @@ export class ScreenReaderUtil {
    * Add screen reader only description to element
    */
   static addDescription(element: HTMLElement, description: string): void {
-    const descId = `desc-${Math.random().toString(36).substr(2, 9)}`;
+    const descId = `desc-${Math.random().toString(36).slice(2, 11)}`;
     const descElement = document.createElement('span');
     descElement.id = descId;
     descElement.className = 'sr-only';

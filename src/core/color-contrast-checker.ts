@@ -11,11 +11,13 @@ export interface ColorContrastResult {
 }
 
 export class ColorContrastChecker {
+  private static readonly HEX_COLOR_REGEX = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
+
   /**
    * Convert hex color to RGB
    */
   private static hexToRgb(hex: string): { r: number; g: number; b: number } | null {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    const result = this.HEX_COLOR_REGEX.exec(hex);
     return result
       ? {
           r: parseInt(result[1], 16),

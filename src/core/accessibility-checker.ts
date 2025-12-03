@@ -102,9 +102,9 @@ export class AccessibilityChecker {
    */
   private checkHeadings(html: string): void {
     const headingRegex = /<h([1-6])[^>]*>.*?<\/h\1>/gi;
-    const headings = [...html.matchAll(headingRegex)];
+    const matchesArray = html.match(headingRegex);
     
-    if (headings.length === 0) {
+    if (!matchesArray) {
       this.addIssue({
         id: 'no-headings',
         type: 'warning',
@@ -114,11 +114,20 @@ export class AccessibilityChecker {
         wcagCriteria: '2.4.6',
         suggestion: 'Use heading elements to structure content',
       });
+      return;
     }
 
+    const headings: Array<{ level: number; text: string }> = [];
+    matchesArray.forEach((match) => {
+      const levelMatch = match.match(/<h([1-6])/);
+      if (levelMatch) {
+        headings.push({ level: parseInt(levelMatch[1]), text: match });
+      }
+    });
+    
     let previousLevel = 0;
-    headings.forEach((match, index) => {
-      const level = parseInt(match[1]);
+    headings.forEach((heading, index) => {
+      const level = heading.level;
       
       if (index === 0 && level !== 1) {
         this.addIssue({
@@ -126,7 +135,7 @@ export class AccessibilityChecker {
           type: 'warning',
           severity: 'moderate',
           message: `First heading should be h1, found h${level}`,
-          element: match[0],
+          element: heading.text,
           wcagLevel: 'AA',
           wcagCriteria: '2.4.6',
           suggestion: 'Start document with h1 heading',
@@ -139,7 +148,7 @@ export class AccessibilityChecker {
           type: 'warning',
           severity: 'moderate',
           message: `Heading level skipped from h${previousLevel} to h${level}`,
-          element: match[0],
+          element: heading.text,
           wcagLevel: 'AA',
           wcagCriteria: '2.4.6',
           suggestion: 'Maintain proper heading hierarchy',
@@ -193,18 +202,18 @@ export class AccessibilityChecker {
    */
   private checkLinks(html: string): void {
     const linkRegex = /<a[^>]*>.*?<\/a>/gi;
-    const links = [...html.matchAll(linkRegex)];
+    const linksArray = html.match(linkRegex) || [];
 
-    links.forEach((match, index) => {
-      const linkText = match[0].replace(/<[^>]*>/g, '').trim();
+    linksArray.forEach((link, index) => {
+      const linkText = link.replace(/<[^>]*>/g, '').trim();
       
-      if (!linkText && !match[0].includes('aria-label=')) {
+      if (!linkText && !link.includes('aria-label=')) {
         this.addIssue({
           id: `link-text-${index}`,
           type: 'error',
           severity: 'critical',
           message: 'Link has no accessible text',
-          element: match[0],
+          element: link,
           wcagLevel: 'A',
           wcagCriteria: '2.4.4',
           suggestion: 'Add descriptive link text or aria-label',
@@ -217,7 +226,7 @@ export class AccessibilityChecker {
           type: 'warning',
           severity: 'moderate',
           message: `Vague link text: "${linkText}"`,
-          element: match[0],
+          element: link,
           wcagLevel: 'AA',
           wcagCriteria: '2.4.4',
           suggestion: 'Use descriptive link text that makes sense out of context',
@@ -267,20 +276,23 @@ export class AccessibilityChecker {
    */
   private checkTabIndex(html: string): void {
     const tabindexRegex = /tabindex="(\d+)"/gi;
-    const matches = [...html.matchAll(tabindexRegex)];
+    const matchesArray = html.match(tabindexRegex) || [];
 
-    matches.forEach((match, index) => {
-      const value = parseInt(match[1]);
-      if (value > 0) {
-        this.addIssue({
-          id: `tabindex-positive-${index}`,
-          type: 'warning',
-          severity: 'moderate',
-          message: `Positive tabindex value (${value}) found`,
-          wcagLevel: 'AA',
-          wcagCriteria: '2.4.3',
-          suggestion: 'Avoid positive tabindex values; use 0 or -1',
-        });
+    matchesArray.forEach((match, index) => {
+      const valueMatch = match.match(/tabindex="(\d+)"/i);
+      if (valueMatch) {
+        const value = parseInt(valueMatch[1]);
+        if (value > 0) {
+          this.addIssue({
+            id: `tabindex-positive-${index}`,
+            type: 'warning',
+            severity: 'moderate',
+            message: `Positive tabindex value (${value}) found`,
+            wcagLevel: 'AA',
+            wcagCriteria: '2.4.3',
+            suggestion: 'Avoid positive tabindex values; use 0 or -1',
+          });
+        }
       }
     });
   }
