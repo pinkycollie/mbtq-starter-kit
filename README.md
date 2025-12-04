@@ -1,14 +1,15 @@
-# 🌈 mbtq Quantum Dev - Full-Stack Development Platform
+# 🌈 mbtq Quantum Dev - Framework-Agnostic Development Platform
 
 **Not another dev kit: This is culture, quantum agency, adaptive, inclusive.**
 
-A production-ready, quantum-inspired development platform with AI agents, real-time collaboration, multi-language code generation, accessibility-first design, and radical inclusivity. Built by and for the Deaf, Queer, and Disabled communities.
+A production-ready, quantum-inspired **framework-agnostic** development platform with AI agents, real-time collaboration, multi-language code generation, accessibility-first design, and radical inclusivity. Built by and for the Deaf, Queer, and Disabled communities.
 
 ## 💎 What Makes This Legendary?
 
-This isn't just another UI kit or starter template. **mbtq Quantum Dev** is a complete, extensible development ecosystem that combines:
+This isn't just another UI kit or starter template. **mbtq Quantum Dev** is a complete, extensible development ecosystem with **pure React components** that work anywhere:
 
-- 🤖 **AI-Powered Development** - Framework-agnostic conversational agents (ready for OpenAI, Claude, Gemini, local Rust/Deno)
+- 🎯 **Framework Agnostic** - Pure React packages work with Vite, Next.js, Remix, Astro, Gatsby, or any React framework
+- 🤖 **AI-Powered Development** - Conversational agents ready for OpenAI, Claude, Gemini, local Rust/Deno
 - 🖥️ **Quantum Terminal** - Web-based shell with Deno, Rust, and JavaScript runtime support
 - ✨ **Code Generation** - SaaS templates, Zod schemas, multi-language snippets (Rust, TypeScript, Deno, HTML)
 - 🔄 **Real-time Sync** - Drag-drop-resize widgets with Socket.IO multiuser collaboration
@@ -25,7 +26,8 @@ This isn't just another UI kit or starter template. **mbtq Quantum Dev** is a co
 ```
 mbtq-quantum-dev/
 ├── apps/
-│   └── web/              # React + Vite UI (Next.js ready)
+│   └── web/              # Framework-agnostic React + Vite UI
+│                         # (Easily adaptable to Next.js, Remix, Astro, etc.)
 ├── packages/
 │   ├── quantum-core/     # Core widgets (A11yBar, QuantumSnippets)
 │   ├── terminal-tools/   # QuantumTerminal with multi-runtime support
@@ -294,6 +296,38 @@ serve((req) => {
 ### Add Rust Backend
 
 Create a Rust API service with Actix-web or Rocket and integrate via HTTP or WASM.
+
+---
+
+## 🎯 Framework Agnostic Design
+
+The platform is **intentionally framework-agnostic**. All packages (`@mbtq/*`) are pure React components with zero framework dependencies:
+
+- ✅ **Current**: React + Vite (fast dev, optimized builds)
+- ✅ **Easy Migration**: Next.js, Remix, Astro, Gatsby, etc.
+- ✅ **Pure React**: Components work in any React environment
+- ✅ **No Lock-in**: Swap build tools or frameworks anytime
+
+### Migrating to Next.js (if desired)
+
+```bash
+# 1. Create Next.js app structure
+cd apps
+npx create-next-app@latest nextjs-app --typescript --tailwind
+cd nextjs-app
+
+# 2. Add workspace packages
+npm install @mbtq/quantum-core @mbtq/terminal-tools @mbtq/ai-agent @mbtq/codegen @mbtq/pinksync
+
+# 3. Import components in pages/index.tsx
+import { QuantumAgentChat } from '@mbtq/ai-agent';
+import { QuantumTerminal } from '@mbtq/terminal-tools';
+// ... use as normal React components
+```
+
+### Migrating to Remix, Astro, or Other Frameworks
+
+Same approach - install workspace packages and import as React components. The packages are framework-agnostic by design.
 
 ---
 
