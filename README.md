@@ -33,7 +33,8 @@ mbtq-quantum-dev/
 │   ├── terminal-tools/   # QuantumTerminal with multi-runtime support
 │   ├── ai-agent/         # QuantumAgentChat - conversational codegen
 │   ├── codegen/          # SaaS template generator, Zod schemas
-│   └── pinksync/         # Real-time drag/resize/sync widgets
+│   ├── pinksync/         # Real-time drag/resize/sync widgets
+│   └── database/         # Supabase integration (auth, persistence, realtime)
 ├── server/               # Socket.IO backend for real-time features
 ├── docker/               # Docker compose and containerization
 ├── scripts/              # Development automation
@@ -184,6 +185,13 @@ Code generation and templating
 Real-time collaboration widgets
 - `PinkSyncWidget` - Drag/resize/sync component
 
+### `@mbtq/database`
+Supabase database integration
+- Supabase client configuration
+- TypeScript types for database tables
+- Authentication and data persistence
+- Real-time subscriptions
+
 ---
 
 ## 🔧 Development
@@ -222,6 +230,58 @@ turbo run build
 # Lint all packages
 turbo run lint
 ```
+
+---
+
+## 🗄️ Supabase Database Integration
+
+The platform includes **full Supabase integration** for persistent storage, authentication, and real-time features.
+
+### Quick Setup
+
+1. **Create Supabase Project**
+   - Go to [supabase.com](https://supabase.com) and create a new project
+   - Copy your project URL and anon key
+
+2. **Run Database Schema**
+   - Navigate to SQL Editor in Supabase dashboard
+   - Run the SQL from `packages/database/supabase/schema.sql`
+   - This creates tables for users, snippets, templates, and workspaces
+
+3. **Configure Environment Variables**
+
+```bash
+# apps/web/.env
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key-here
+```
+
+4. **Initialize in Your App**
+
+```typescript
+import { initSupabase } from '@mbtq/database';
+
+// Initialize once at startup
+initSupabase();
+```
+
+### Features
+
+- 🔐 **Authentication** - Sign up, sign in, user profiles
+- 📝 **Persistent Snippets** - Save code snippets to database
+- 🏗️ **Template Storage** - Store and share SaaS templates
+- 💼 **Workspace Sync** - Save widget positions and settings
+- 🔒 **Row Level Security** - Secure data access
+- 🔄 **Real-time Updates** - Live collaboration with Supabase Realtime
+
+### Database Schema
+
+- **users** - User profiles (auto-created on signup)
+- **snippets** - Code snippets with language, visibility
+- **templates** - SaaS templates (Dashboard, Auth, Landing, API)
+- **workspaces** - Widget positions and theme settings
+
+See `packages/database/README.md` for detailed usage examples.
 
 ---
 
