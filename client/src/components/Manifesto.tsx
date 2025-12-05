@@ -1,15 +1,15 @@
 import { useState } from "react";
 
+const MANIFESTO_ITEMS = [
+  { text: "Empower Deaf, Queer, Disabled creators with world-class tools.", emoji: "💪" },
+  { text: "AI must serve culture, not erase it. Every output expresses pride and care.", emoji: "🤖" },
+  { text: "Design has radical inclusivity baked in: Bright. Bold. Accessible. Everybody counts.", emoji: "🎨" },
+  { text: "Our code is Open—a community, not a product.", emoji: "💻" },
+  { text: "If it doesn't make you smile, remix it until it does.", emoji: "😊" },
+];
+
 export default function Manifesto() {
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
-  
-  const items = [
-    { text: "Empower Deaf, Queer, Disabled creators with world-class tools.", emoji: "💪" },
-    { text: "AI must serve culture, not erase it. Every output expresses pride and care.", emoji: "🤖" },
-    { text: "Design has radical inclusivity baked in: Bright. Bold. Accessible. Everybody counts.", emoji: "🎨" },
-    { text: "Our code is Open—a community, not a product.", emoji: "💻" },
-    { text: "If it doesn't make you smile, remix it until it does.", emoji: "😊" },
-  ];
   
   return (
     <aside className="p-8 bg-gradient-to-br from-fuchsia-100 via-blue-50 to-yellow-100 rounded-xl shadow-2xl m-4 text-xl font-bold text-fuchsia-700 border-4 border-fuchsia-600 animate-[slideDown_0.5s_ease-out]">
@@ -17,7 +17,7 @@ export default function Manifesto() {
         mbtq.dev Manifesto <span className="animate-bounce">✨</span>
       </h2>
       <ul className="list-none ml-0 mt-4 text-base text-blue-800 space-y-3">
-        {items.map((item, index) => (
+        {MANIFESTO_ITEMS.map((item, index) => (
           <li
             key={index}
             className={`p-3 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 ${

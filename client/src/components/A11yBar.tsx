@@ -14,11 +14,11 @@ export default function A11yBar() {
       if (typeof axe === 'function') {
         axe(React, ReactDOM, 1000);
         setCheckCount(c => c + 1);
-        alert("✅ Accessibility check complete! Check console for details.");
+        console.log("✅ Accessibility check complete! See results above.");
       }
     } catch (error) {
       console.error("Error running axe check:", error);
-      alert("Check console for accessibility analysis.");
+      console.log("Check console for accessibility analysis.");
     }
   };
 
@@ -34,7 +34,11 @@ export default function A11yBar() {
         <span className="text-xl">♿</span>
         <span className="font-bold">Accessibility Mode</span>
         {checkCount > 0 && (
-          <span className="bg-green-500 text-white px-2 py-1 rounded-full text-xs animate-pulse">
+          <span 
+            className="bg-green-500 text-white px-2 py-1 rounded-full text-xs animate-pulse"
+            role="status"
+            aria-label={`${checkCount} accessibility ${checkCount > 1 ? 'checks' : 'check'} completed successfully`}
+          >
             {checkCount} check{checkCount > 1 ? 's' : ''} ✓
           </span>
         )}

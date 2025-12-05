@@ -61,7 +61,7 @@ export default function App() {
       {/* Celebration confetti overlay */}
       {celebration && (
         <div className="fixed inset-0 pointer-events-none z-50">
-          {[...Array(50)].map((_, i) => (
+          {[...Array(30)].map((_, i) => (
             <div
               key={i}
               className="absolute text-2xl animate-ping"
@@ -90,7 +90,7 @@ export default function App() {
         <div className="flex gap-3">
           <select
             value={theme}
-            onChange={(e) => setTheme(e.target.value as any)}
+            onChange={(e) => setTheme(e.target.value as 'rainbow' | 'sunset' | 'ocean')}
             className="px-3 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full hover:from-pink-600 hover:to-purple-600 focus:outline-fuchsia-700 cursor-pointer transition-all font-bold text-sm"
             aria-label="Select color theme"
           >
