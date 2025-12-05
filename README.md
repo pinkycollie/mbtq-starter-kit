@@ -1,12 +1,38 @@
-# 🌈 mbtq Quantum Dev - Framework-Agnostic Development Platform
+# 🌈 mbtq Quantum Dev - Safe Development Platform for LGBTQ+ & Deaf Communities
 
-**Not another dev kit: This is culture, quantum agency, adaptive, inclusive.**
+**A safe hosting space and development platform for LGBTQ+ and Deaf developers.**
 
-A production-ready, quantum-inspired **framework-agnostic** development platform with AI agents, real-time collaboration, multi-language code generation, accessibility-first design, and radical inclusivity. Built by and for the Deaf, Queer, and Disabled communities.
+This is a production-ready, quantum-inspired **framework-agnostic** development platform with AI agents, real-time collaboration, multi-language code generation, accessibility-first design, and radical inclusivity. The platform provides infrastructure and tools while the community owns their identity and content.
 
-## 💎 What Makes This Legendary?
+## 💎 What Makes This Different?
 
-This isn't just another UI kit or starter template. **mbtq Quantum Dev** is a complete, extensible development ecosystem with **pure React components** that work anywhere:
+This isn't just another UI kit or starter template. **mbtq Quantum Dev** is a **safe hosting platform** designed specifically for marginalized communities:
+
+- 🏳️‍🌈 **LGBTQ+ Safe Space** - Built with queer and trans developers in mind
+- 🤟 **Deaf-First Design** - Visual alerts, no audio-only features, accessibility native
+- 🔒 **Privacy Focused** - Pseudonymous profiles, data sovereignty, full export/delete
+- ♿ **Disability Justice** - WCAG compliance, screen reader optimized, axe-core testing
+- 🤝 **Community Owned** - Open source, transparent moderation, no data selling
+
+### Community Safety
+
+- **[Code of Conduct](./CODE_OF_CONDUCT.md)** - Community guidelines and enforcement
+- **[Safety Features](./SAFETY.md)** - Technical safety, privacy, and moderation features
+
+## 🎯 Core Purpose
+
+This platform provides **infrastructure for safe community development**:
+
+- Framework-agnostic React components (work with Vite, Next.js, Remix, Astro, etc.)
+- Supabase database with Row Level Security
+- Real-time collaboration tools
+- Accessibility-first component library
+- AI-powered code generation
+- Complete data ownership
+
+Communities use these tools to build their own branded experiences while maintaining safety and privacy.
+
+## 💎 Key Features
 
 - 🎯 **Framework Agnostic** - Pure React packages work with Vite, Next.js, Remix, Astro, Gatsby, or any React framework
 - 🤖 **AI-Powered Development** - Conversational agents ready for OpenAI, Claude, Gemini, local Rust/Deno
