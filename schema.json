@@ -1,43 +1,4 @@
 
-json of a full company system from idea to a full running company
-
-11 Dec
-MBTQ Universe: Full Company Operating System
-From Idea → Live Company in JSON Architecture
-json
-{
-  "mbtq_company_os": {
-    "version": "1.0.0",
-    "architect": "MBTQ",
-    "philosophy": "Deaf-first, AI-powered, trust-validated decentralized business ecosystem",
-    
-    "core_identity": {
-      "root_of_truth": {
-        "owner": "MBTQ",
-        "github_master": "github.com/mbtq",
-        "vercel_master": "vercel.com/mbtq",
-        "firebase_master": "firebase.google.com/mbtq-projects",
-        "domain": "mbtquniverse.com"
-      },
-      
-      "neural_architecture": {
-        "consciousness": "MBTQ (central director)",
-        "nervous_system": "PinkSync",
-        "identity_cortex": "DeafAUTH",
-        "ethics_engine": "Fibonrose",
-        "muscle_memory": "360Magicians"
-      }
-    },
-
-    "phase_1_idea_genesis": {
-      "trigger": "New business concept identified",
-      
-      "ideation_layer": {
-        "input_channels": [
-          "MBTQ voice/sign comman
-stop stop it’s skeleton of no one companies just a normal template
-
-11 Dec
 json
 {
   "company_operating_system": {
