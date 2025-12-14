@@ -1,28 +1,71 @@
-# 🌈 MBTQ-dev Starter Kit for  (mbtq.dev)
+# 🌈 MBTQ.dev - AI-Powered Full-Stack Development Platform
 
-A production-grade, real-time, drag-resize-accessible React starter for Deaf/Queer adaptive workspaces.
+**A transparent, open-source generative AI development platform** that teaches and guides developers to build full-stack applications with modern tools like Supabase, Next.js, and React.
 
-## 💎 What Makes This Legendary?
+## 📢 Platform Evolution
 
-**This isn't just another UI kit.** This is a culture-first, accessibility-native, real-time collaborative development platform built by and for the LGBTQ+ and Deaf communities.
+**Important Update:** MBTQ.dev was originally created as a platform to help deaf entrepreneurs with idea validation, building, growth, and management. These core **business features have been migrated to the BUSINESS MAGICIAN platform**, powered by 360 Magicians (Generative AI).
+
+**Current Focus:** MBTQ.dev now serves as an educational and starter kit platform focusing on:
+- 🤖 Generative AI integration for full-stack apps
+- 🔌 Backend connectors (Supabase, APIs, databases)
+- ⚡ Modern framework templates (Next.js, React)
+- ♿ Accessibility-first development
+- 📚 Teaching developers to find and integrate APIs
+- 🎨 Production-ready starter kits
+
+## 💎 What Makes This Platform Unique?
+
+**Built by and for the LGBTQ+ and Deaf communities**, this is a culture-first, accessibility-native platform that combines:
+- Real-time collaborative development tools
+- Generative AI guidance for building full-stack applications
+- Transparent documentation and open-source philosophy
 
 ### ✨ Core Features
 
-- **🎨 Movable, Resizable Widgets** - Built with Interact.js for smooth, intuitive drag-and-drop
-- **🔄 Real-time Multiuser Sync** - Socket.IO powered collaboration
-- **♿ Accessibility First** - WCAG compliant, screen-reader optimized, ARIA-enhanced
-- **🎭 High Contrast Toggle** - Adaptive visual modes for low vision users
-- **🔍 Built-in A11y Testing** - Integrated axe-core for automatic accessibility analysis
-- **🏳️‍🌈 Queer & Deaf Culture** - Visual alerts, manifesto, community-driven design
-- **⚡ Modern Tech Stack** - React 18, TypeScript, Vite, Tailwind CSS
-- **🔌 Modular Architecture** - Ready for DeafAuth, video, AI, and more plug-ins
+#### 🤖 Generative AI Integration
+- **AI-Powered Development** - Learn to integrate GPT-4, Claude, and Gemini into your apps
+- **Full-Stack Templates** - Production-ready examples with AI features
+- **Best Practices** - Enterprise-grade patterns for LLM integration
+
+#### 🔌 Backend Connectors
+- **Supabase Integration** - Complete guides for auth, database, storage, and edge functions
+- **API Discovery** - Learn how to find, evaluate, and integrate third-party APIs
+- **Real-time Features** - WebSocket, Server-Sent Events, and real-time database sync
+
+#### ⚡ Modern Framework Support
+- **React 18** - Current implementation with TypeScript
+- **Next.js Ready** - Documentation and examples for Next.js migration
+- **Vite/Build Tools** - Modern build configuration (can be replaced with framework-specific tools)
+
+#### ♿ Accessibility First
+- **WCAG Compliant** - Screen-reader optimized, ARIA-enhanced
+- **Visual Alerts** - Deaf-friendly notification systems
+- **High Contrast Toggle** - Adaptive visual modes for low vision users
+- **Built-in A11y Testing** - Integrated axe-core for automatic accessibility analysis
+
+#### 🏳️‍🌈 Community & Culture
+- **Queer & Deaf Culture** - Community-driven design principles
+- **Open Source** - Transparent development, community contributions welcome
+- **Educational Focus** - Teach and guide, not just provide solutions
 
 ## 🚀 Getting Started
 
+### Quick Start Options
+
+#### Option 1: Use Current React + Vite Setup (Fastest)
+For rapid prototyping and learning, the current setup is ready to go.
+
+#### Option 2: Migrate to Next.js (Recommended for Production)
+Next.js provides better performance, SEO, and full-stack capabilities. See our [Next.js Migration Guide](./docs/nextjs-migration.md) (coming soon).
+
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
+- A Supabase account (free tier available at [supabase.com](https://supabase.com))
+
+### Current Setup (React + Vite)
 
 ### 1. Install Dependencies
 
@@ -220,6 +263,172 @@ PRs welcome! We especially encourage contributions from:
 ## 📝 License
 
 Open source. See LICENSE for details.
+
+## 🤖 Generative AI & Supabase Integration Guide
+
+### Setting Up Your Supabase Backend
+
+1. **Create a Supabase Project**
+   - Visit [supabase.com](https://supabase.com) and create a free account
+   - Create a new project and note your project URL and anon key
+
+2. **Install Supabase Client**
+   ```bash
+   npm install @supabase/supabase-js
+   ```
+
+3. **Initialize Supabase in Your App**
+   ```typescript
+   import { createClient } from '@supabase/supabase-js'
+
+   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+   const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+   export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+   ```
+
+4. **Add Environment Variables**
+   Create a `.env` file:
+   ```env
+   VITE_SUPABASE_URL=your-project-url
+   VITE_SUPABASE_ANON_KEY=your-anon-key
+   VITE_SOCKET_SERVER_URL=http://localhost:4000
+   ```
+
+### Key Supabase Features
+
+#### Authentication
+```typescript
+// Sign up
+const { data, error } = await supabase.auth.signUp({
+  email: 'user@example.com',
+  password: 'securepassword'
+})
+
+// Sign in
+const { data, error } = await supabase.auth.signInWithPassword({
+  email: 'user@example.com',
+  password: 'securepassword'
+})
+
+// Get current user
+const { data: { user } } = await supabase.auth.getUser()
+```
+
+#### Database Operations
+```typescript
+// Insert data
+const { data, error } = await supabase
+  .from('users')
+  .insert({ name: 'John', email: 'john@example.com' })
+
+// Query data
+const { data, error } = await supabase
+  .from('users')
+  .select('*')
+  .eq('email', 'john@example.com')
+
+// Update data
+const { data, error } = await supabase
+  .from('users')
+  .update({ name: 'Jane' })
+  .eq('id', userId)
+
+// Delete data
+const { data, error } = await supabase
+  .from('users')
+  .delete()
+  .eq('id', userId)
+```
+
+#### Real-time Subscriptions
+```typescript
+// Subscribe to changes
+const channel = supabase
+  .channel('public:posts')
+  .on('postgres_changes', 
+    { event: '*', schema: 'public', table: 'posts' },
+    (payload) => {
+      console.log('Change received!', payload)
+    }
+  )
+  .subscribe()
+
+// Unsubscribe when done
+supabase.removeChannel(channel)
+```
+
+#### Storage
+```typescript
+// Upload file
+const { data, error } = await supabase.storage
+  .from('avatars')
+  .upload('public/avatar.png', file)
+
+// Get public URL
+const { data } = supabase.storage
+  .from('avatars')
+  .getPublicUrl('public/avatar.png')
+```
+
+### Integrating Generative AI
+
+For complete AI integration patterns with Deno Edge Functions and multiple LLM providers, see our comprehensive guide:
+
+📖 **[LLM + Deno + Supabase Architecture Guide](./llm-deno-supabase.md)**
+
+This guide covers:
+- Multi-model AI routing (GPT-4, Claude, Gemini)
+- Cost optimization strategies
+- Edge function deployment
+- Real-time AI streaming
+- Security and guardrails
+- Production-grade patterns
+
+### Finding and Using APIs
+
+1. **API Discovery Resources**
+   - [RapidAPI](https://rapidapi.com) - Marketplace of APIs
+   - [Postman Public API Network](https://www.postman.com/explore) - API discovery
+   - [Public APIs](https://github.com/public-apis/public-apis) - Curated list
+
+2. **Integration Pattern**
+   ```typescript
+   // Example: Weather API integration
+   async function getWeather(city: string) {
+     const response = await fetch(
+       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+     )
+     return response.json()
+   }
+   ```
+
+3. **Best Practices**
+   - Always store API keys in environment variables
+   - Use server-side endpoints to protect keys
+   - Implement rate limiting and caching
+   - Handle errors gracefully
+   - Read API documentation thoroughly
+
+### Building Full-Stack Apps with MBTQ.dev
+
+1. **Frontend**: Use our React templates or migrate to Next.js
+2. **Backend**: Supabase for database, auth, and storage
+3. **APIs**: Integrate third-party services as needed
+4. **AI Features**: Use Supabase Edge Functions with LLM APIs
+5. **Deployment**: Vercel/Netlify for frontend, Supabase handles backend
+
+## 🎯 Migration to BUSINESS MAGICIAN
+
+For business-focused features (idea validation, market research, business planning), visit the **BUSINESS MAGICIAN** platform powered by 360 Magicians AI:
+
+- ✓ Idea Validation & Market Research
+- ✓ Business Plan Generation
+- ✓ Growth Strategy Planning
+- ✓ Managed Services for Entrepreneurs
+- ✓ Deaf Entrepreneur Support
+
+These features are now handled by specialized AI agents on the BUSINESS MAGICIAN platform.
 
 ## 🔗 Links
 

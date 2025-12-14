@@ -8,11 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "interactjs": "^1.10.23",
-    "@axe-core/react": "^4.7.2",
-    "socket.io-client": "^4.7.4"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "interactjs": "^1.10.27",
+    "@axe-core/react": "^4.11.0",
+    "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
