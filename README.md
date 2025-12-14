@@ -2,6 +2,13 @@
 
 **A transparent, open-source generative AI development platform** that teaches and guides developers to build full-stack applications with modern tools like Supabase, Next.js, and React.
 
+> 🌐 **Live Demo**: [https://pinkycollie.github.io/mbtq-dev/](https://pinkycollie.github.io/mbtq-dev/)
+> 
+> 📖 **Documentation**: 
+> - [Backend Connector Guide](./BACKEND_CONNECTOR_GUIDE.md) - Complete Supabase & API integration guide
+> - [GitHub Pages Setup](./GITHUB_PAGES_SETUP.md) - Deploy your own instance
+> - [LLM Integration Guide](./llm-deno-supabase.md) - Advanced AI integration patterns
+
 ## 📢 Platform Evolution
 
 **Important Update:** MBTQ.dev was originally created as a platform to help deaf entrepreneurs with idea validation, building, growth, and management. These core **business features have been migrated to the BUSINESS MAGICIAN platform**, powered by 360 Magicians (Generative AI).
