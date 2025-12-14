@@ -6,6 +6,9 @@ let supabaseClient: SupabaseClient<Database> | null = null;
 /**
  * Initialize Supabase client with environment variables
  * Call this once at application startup
+ * 
+ * Note: In browser environments, only import.meta.env is available (Vite).
+ * The process.env fallback is for Node.js/server-side environments only.
  */
 export function initSupabase(supabaseUrl?: string, supabaseKey?: string): SupabaseClient<Database> {
   const url = supabaseUrl || import.meta.env.VITE_SUPABASE_URL || process.env.VITE_SUPABASE_URL;

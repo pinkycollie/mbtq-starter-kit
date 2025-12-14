@@ -1,6 +1,13 @@
 # 🌈 mbtq Quantum Dev - Safe Development Platform for LGBTQ+ & Deaf Communities
 
+[![CI/CD Pipeline](https://github.com/pinkycollie/mbtq-dev/actions/workflows/ci.yml/badge.svg)](https://github.com/pinkycollie/mbtq-dev/actions/workflows/ci.yml)
+[![GitHub Pages](https://github.com/pinkycollie/mbtq-dev/actions/workflows/pages.yml/badge.svg)](https://github.com/pinkycollie/mbtq-dev/actions/workflows/pages.yml)
+[![Production Status](https://img.shields.io/badge/production-85%25-success)](https://pinkycollie.github.io/mbtq-dev)
+[![License](https://img.shields.io/badge/license-Open%20Source-blue.svg)](LICENSE)
+
 **A safe hosting space and development platform for LGBTQ+ and Deaf developers.**
+
+📊 **[View Live Status Dashboard](https://pinkycollie.github.io/mbtq-dev)** | 📋 **[Production Readiness Checklist](./PRODUCTION_STATUS.md)**
 
 This is a production-ready, quantum-inspired **framework-agnostic** development platform with AI agents, real-time collaboration, multi-language code generation, accessibility-first design, and radical inclusivity. The platform provides infrastructure and tools while the community owns their identity and content.
 
