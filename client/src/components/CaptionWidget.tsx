@@ -11,10 +11,11 @@ interface CaptionWidgetProps {
   captions?: string[];
 }
 
-// Currently unused but kept for future implementation
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-// Currently unused but kept for future implementation
+/**
+ * CaptionWidget - Real-time caption display for deaf accessibility
+ * Supports both video captions and live transcription
+ * Props are currently unused but kept for future implementation
+ */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function CaptionWidget(_props: CaptionWidgetProps) {
   const [config, setConfig] = useState<CaptionConfig>({
