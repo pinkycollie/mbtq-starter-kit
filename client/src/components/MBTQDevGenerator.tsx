@@ -174,6 +174,9 @@ const MBTQDevGenerator = () => {
                   className={`relative w-12 h-6 rounded-full transition-all ${
                     config.accessibility ? 'bg-green-500' : 'bg-slate-700'
                   }`}
+                  role="switch"
+                  aria-checked={config.accessibility}
+                  aria-label="Toggle Accessibility Suite"
                 >
                   <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
                     config.accessibility ? 'translate-x-6' : ''
