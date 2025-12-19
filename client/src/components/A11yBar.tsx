@@ -52,7 +52,7 @@ export default function A11yBar() {
           🏅 Features
         </button>
         {showBadges && (
-          <div className="flex gap-2 ml-2 animate-fade-in">
+          <div className="flex gap-2 ml-2 transition-opacity duration-300">
             <span className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-sm" title="Visual notifications for deaf users">
               👁️ Visual Alerts
             </span>
@@ -60,10 +60,10 @@ export default function A11yBar() {
               💬 Captions
             </span>
             <span className="bg-pink-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-sm" title="High contrast mode">
-              🌙 Contrast
+              🎨 Contrast
             </span>
             <span className="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-sm" title="Accessibility checking tools">
-              🔍 A11y Check
+              ✅ A11y Check
             </span>
           </div>
         )}
