@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["client/src"],
+  "include": ["client/src", "fibonrose"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
