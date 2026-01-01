@@ -1,4 +1,4 @@
-# 🌈 MBTQ.dev - AI-Powered Full-Stack Development Starter
+# 🌈 MBTQ.dev - AI-Powered Full-Stack Development Platform
 
 [![CI/CD Pipeline](https://github.com/pinkycollie/mbtq-dev/actions/workflows/ci.yml/badge.svg)](https://github.com/pinkycollie/mbtq-dev/actions/workflows/ci.yml)
 [![Deploy to GitHub Pages](https://github.com/pinkycollie/mbtq-dev/actions/workflows/deploy.yml/badge.svg)](https://github.com/pinkycollie/mbtq-dev/actions/workflows/deploy.yml)
